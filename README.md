@@ -111,7 +111,23 @@ resource "docker_container" "nginx" {
 
 ![screen](screenshots/9.png)
 
+8. Уничтожаем ресурсы с помощью ```terraform destroy```, содержимое файла **terraform.tfstate**:
 
+![screen](screenshots/10.png)
+
+9. Docker образ не был удален благодаря строке в коде:
+
+```
+keep_locally = true
+```
+
+Находим подтверждение этому в документации
+
+![screen](screenshots/11.png)
+
+
+
+ 
 
 ------
 
