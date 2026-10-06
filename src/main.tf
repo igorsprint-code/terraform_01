@@ -33,5 +33,8 @@ resource "docker_container" "hello_world" {
     internal = 80
     external = 9090
   }
+
+  
 }
+
 

@@ -153,6 +153,37 @@ keep_locally = true
 
 6. Зайдите на вашу ВМ , подключитесь к контейнеру и проверьте наличие секретных env-переменных с помощью команды ```env```. Запишите ваш финальный код в репозиторий.
 
+
+### Решение
+
+1. Создаем ВМ в облаке через web-консоль
+
+![screen](screenshots/13.png)
+
+
+2. Подключаеся по ssh, устанавливаем докер:
+
+![screen](screenshots/14.png)
+
+3. Настраиваем подключение terraform к remote docker context вашей ВМ через ssh:
+
+```hcl
+provider "docker" {
+  host     = "ssh://igor@158.160.159.176:22"
+  ssh_opts = ["-o", "StrictHostKeyChecking=no", "-o", "UserKnownHostsFile=/dev/null"]
+}
+```
+
+4. Используя terraform и  remote docker context, запускаем на удаленной  ВМ контейнер ```mysql:8``` код в файле [main.tf](/yc_vm/main.tf):
+
+![screen](screenshots/15.png)
+
+5. Заходим на вм, вскрываем контейнер, проверяем наличие секретных env-переменных:
+
+![screen](screenshots/16.png)
+
+
+
 ### Задание 3*
 1. Установите [opentofu](https://opentofu.org/)(fork terraform с лицензией Mozilla Public License, version 2.0) любой версии
 2. Попробуйте выполнить тот же код с помощью ```tofu apply```, а не terraform apply.
