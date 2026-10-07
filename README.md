@@ -165,7 +165,7 @@ keep_locally = true
 
 ![screen](screenshots/14.png)
 
-3. Настраиваем подключение terraform к remote docker context вашей ВМ через ssh:
+3. Настраиваем подключение terraform к remote docker context  ВМ через ssh:
 
 ```hcl
 provider "docker" {
